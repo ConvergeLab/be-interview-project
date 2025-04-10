@@ -4,14 +4,6 @@ from trace_extractor import PCBTraceExtractor
 if __name__ == "__main__":
     extractor = PCBTraceExtractor()
     extractor.load_json_file("Vacuum_PCB_OBjects.json")
-    # test casses
-
-    # print(extractor.extract_trace_between_pads(pad1, pad2))
-    # pad1 = extractor.desgignator2_pad_number2_pad["C41"]["1"]
-    # pad2 = extractor.desgignator2_pad_number2_pad["C3"]["1"]
-    # print(extractor.extract_trace_between_pads(pad1, pad2))
-
-
 
     assert abs(
         extractor.extract_traces_between_pads("U1", "11", "R66", "1") - 5.30688
@@ -33,7 +25,13 @@ if __name__ == "__main__":
         extractor.extract_traces_between_pads("U1", "9", "D5", "2") - 9.97167
     ) < 0.1
 
+    assert abs(
+        extractor.extract_traces_between_pads("R76", "1", "U1", "37") - 40.3965
+    ) < 0.1
 
+    assert abs(
+        extractor.extract_traces_between_pads("U1", "4", "R54", "2") - 26.30932
+    ) < 0.1
 
     assert abs(
         extractor.extract_traces_between_pads("R35", "2", "Q6", "4") - 2.07941
@@ -73,4 +71,44 @@ if __name__ == "__main__":
 
     assert abs(
         extractor.extract_traces_between_pads("R73", "2", "C31", "2") - 48.54113
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("C50", "1", "C41", "1") - 31.42141
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("R85", "1", "D8", "2") - 46.99169
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("U1", "21", "C12", "2") - 42.09864
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("U2", "2", "C9", "2") - 22.30308
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("U1", "5", "U2", "2") - 21.451572
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("R2", "1", "C3", "2") - 1.90922
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("U1", "9", "C21", "2") - 3.7029
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("D8", "2", "D4", "2") - 1.9909
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("U1", "62", "C44", "1") - 3.75556
+    ) < 0.1
+
+    assert abs(
+        extractor.extract_traces_between_pads("U1", "62", "R29", "1") - 48.45444
     ) < 0.1
