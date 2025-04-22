@@ -80,3 +80,15 @@ if __name__ == "__main__":
     assert abs(
         extractor.extract_traces_between_pads("U1", "62", "R29", "1") - 48.4302
     ) < 0.1
+
+    assert extractor.extract_traces_between_pads("U1", "66", "C28", "2") is None
+
+    assert extractor.extract_traces_between_pads("U1", "65", "R85", "1") is None
+
+    assert extractor.extract_traces_between_pads("D8", "2", "R85", "1") is None
+
+    assert extractor.extract_traces_between_pads("U2", "2", "C9", "2") is None
+
+    assert extractor.extract_traces_between_pads("U1", "51", "R26", "2") is None
+
+    assert extractor.extract_traces_between_pads("D5", "1", "R37", "2") is None
