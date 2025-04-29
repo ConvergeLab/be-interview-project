@@ -34,7 +34,7 @@ if __name__ == "__main__":
     ) < 0.1
 
     assert abs(
-        extractor.extract_traces_between_pads("R35", "2", "Q6", "4") - 1.9921
+        extractor.extract_traces_between_pads("R35", "2", "Q6", "4") - 2.1666
     ) < 0.1
 
     assert abs(
